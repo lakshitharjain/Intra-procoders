@@ -10,18 +10,17 @@ import javax.persistence.Table;
 
 
 /**
- * Skills master Entity for the Skills Master Table
+ * checklist Master Entity
  *
  * @author Anandu
  */
-
 @Entity
-@Table(name = "SKILLS_MASTER")
-public class SkillsMaster implements Serializable {
+@Table(name = "checklist_MASTER")
+public class ChecklistMaster implements Serializable {
 
-    private static final long serialVersionUID = -1736265490127501232L;
-    private int skillType;
-    private String skillDescription;
+    private static final long serialVersionUID = 6996156925398952698L;
+    private int checklistType;
+    private String checklistDescription;
     private String modifiedBy;
     private long modifiedOn;
     private String createdBy;
@@ -29,74 +28,47 @@ public class SkillsMaster implements Serializable {
     private int status;
 
     /**
-     * SkillsMaster COnstructor
-     */
-    public SkillsMaster() {
-    }
-
-    /**
-     * SkillsMaster COnstructor
+     * get the checklist type
      *
-     * @param skillType
-     * @param skillDescription
-     * @param modifiedBy
-     * @param modifiedOn
-     * @param createdBy
-     * @param createdOn
-     * @param status
-     */
-    public SkillsMaster(int skillType, String skillDescription, String modifiedBy, long modifiedOn, String createdBy, long createdOn, int status) {
-        this.skillType = skillType;
-        this.skillDescription = skillDescription;
-        this.modifiedBy = modifiedBy;
-        this.modifiedOn = modifiedOn;
-        this.createdBy = createdBy;
-        this.createdOn = createdOn;
-        this.status = status;
-    }
-
-    /**
-     * Gets the SkillsType
-     *
-     * @return skillType
+     * @return checklistType
      */
     @Id
     @GeneratedValue
-    @Column(name = "skill_type")
-    public int getSkillType() {
-        return skillType;
+    @Column(name = "checklist_type")
+    public int getchecklistType() {
+        return checklistType;
     }
 
     /**
-     * Sets the Skill Type
+     * Sets the Checcklist type
      *
-     * @param skillType
+     * @param checklistType
      */
-    public void setSkillType(int skillType) {
-        this.skillType = skillType;
+    public void setchecklistType(int checklistType) {
+        this.checklistType = checklistType;
     }
 
     /**
-     * Gets the Description of the Skill
+     * Sets the ChecckList type
      *
-     * @return SkillDescription
+     * @return checklistDescription
      */
-    @Column(name = "skill_description")
-    public String getSkillDescription() {
-        return skillDescription;
+    @Column(name = "checklist_name")
+    public String getchecklistDescription() {
+        return checklistDescription;
     }
 
     /**
-     * Sets the Skills Description
+     * Sets the checklist Name
      *
-     * @param skillDescription
+     * @param checklistDescription
      */
-    public void setSkillDescription(String skillDescription) {
-        this.skillDescription = skillDescription;
+    public void setchecklistDescription(String checklistDescription) {
+        this.checklistDescription = checklistDescription;
     }
 
     /**
-     * Gets Modified By Name
+     * Sets the checklist Modified By Name
      *
      * @return modifiedBy
      */
@@ -105,8 +77,9 @@ public class SkillsMaster implements Serializable {
         return modifiedBy;
     }
 
+
     /**
-     * Sets the Modified BY Name
+     * Set Modified By Name
      *
      * @param modifiedBy
      */
@@ -115,17 +88,18 @@ public class SkillsMaster implements Serializable {
     }
 
     /**
-     * Gets the Modified On Date
+     * Gets the modifiedBy Name
      *
-     * @return modified On date
+     * @return modifiedOn
      */
     @Column(name = "modified_on")
     public long getModifiedOn() {
         return modifiedOn;
     }
 
+
     /**
-     * Sets Modified On date
+     * sets the modified on Date
      *
      * @param modifiedOn
      */
@@ -134,9 +108,9 @@ public class SkillsMaster implements Serializable {
     }
 
     /**
-     * Gets CreatedBy Name
+     * Gets Created By Name
      *
-     * @return createdBY
+     * @return
      */
     @Column(name = "created_by")
     public String getCreatedBy() {
@@ -144,7 +118,7 @@ public class SkillsMaster implements Serializable {
     }
 
     /**
-     * Sets Created By Name
+     * Sets the created BY Name
      *
      * @param createdBy
      */
@@ -153,7 +127,7 @@ public class SkillsMaster implements Serializable {
     }
 
     /**
-     * Gets the created on date
+     * Gets the Created on date
      *
      * @return createdOn
      */
@@ -163,7 +137,7 @@ public class SkillsMaster implements Serializable {
     }
 
     /**
-     * Sets the create On date
+     * sets the Created on date
      *
      * @param createdOn
      */
@@ -172,7 +146,7 @@ public class SkillsMaster implements Serializable {
     }
 
     /**
-     * Gets the satus of the record
+     * gets the status of the record
      *
      * @return status
      */
@@ -182,7 +156,7 @@ public class SkillsMaster implements Serializable {
     }
 
     /**
-     * gets the status of the record
+     * sets the status of the record
      *
      * @param status
      */
@@ -190,14 +164,15 @@ public class SkillsMaster implements Serializable {
         this.status = status;
     }
 
+
     /**
-     * The to string method of the Skills Master Entity
+     * To string of CheckListMaster
      *
      * @return String
      */
     @Override
     public String toString() {
-        return "SkillsMaster [skillType=" + skillType + ", skillDescription=" + skillDescription + ", modifiedBy="
+        return "checklistMaster [checklistType=" + checklistType + ", checklistDescription=" + checklistDescription + ", modifiedBy="
                 + modifiedBy + ", modifiedOn=" + modifiedOn + ", createdBy=" + createdBy + ", createdOn=" + createdOn
                 + ", status=" + status + "]";
     }

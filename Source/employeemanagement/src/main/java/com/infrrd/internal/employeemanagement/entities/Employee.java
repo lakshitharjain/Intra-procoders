@@ -7,140 +7,266 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Employee Entity which is related to the EMPLOYEE table
+ *
+ * @author Anandu
+ */
+
 @Entity
 @Table(name = "EMPLOYEE")
 public class Employee implements Serializable {
 
-	public Employee()
-    {
+    /**
+     * Constructor for the Employee entity
+     */
+    public Employee() {
         super();
     }
 
+    /**
+     * Constructor for the Employee entity
+     *
+     * @param employeeId
+     * @param emailId
+     * @param employeeName
+     * @param dateOfJoining
+     * @param designation
+     * @param modifiedBy
+     * @param modifiedOn
+     * @param createdBy
+     * @param createdOn
+     * @param status
+     */
+
     public Employee(int employeeId, String emailId, String employeeName, long dateOfJoining, String designation,
-			String modifiedBy, long modifiedOn, String createdBy, long createdOn, int status) {
-		super();
-		this.employeeId = employeeId;
-		this.emailId = emailId;
-		this.employeeName = employeeName;
-		this.dateOfJoining = dateOfJoining;
-		this.designation = designation;
-		this.modifiedBy = modifiedBy;
-		this.modifiedOn = modifiedOn;
-		this.createdBy = createdBy;
-		this.createdOn = createdOn;
-		this.status = status;
-	}
+                    String modifiedBy, long modifiedOn, String createdBy, long createdOn, int status) {
+        super();
+        this.employeeId = employeeId;
+        this.emailId = emailId;
+        this.employeeName = employeeName;
+        this.dateOfJoining = dateOfJoining;
+        this.designation = designation;
+        this.modifiedBy = modifiedBy;
+        this.modifiedOn = modifiedOn;
+        this.createdBy = createdBy;
+        this.createdOn = createdOn;
+        this.status = status;
+    }
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -991420900057289878L;
+    private static final long serialVersionUID = -991420900057289878L;
 
-	private int employeeId;
-	private String emailId;
-	private String employeeName;
-	private long dateOfJoining;
-	private String designation;
-	private String modifiedBy;
-	private long modifiedOn;
-	private String createdBy;
-	private long createdOn;
-	private int status;
+    private int employeeId;
+    private String emailId;
+    private String employeeName;
+    private long dateOfJoining;
+    private String designation;
+    private String modifiedBy;
+    private long modifiedOn;
+    private String createdBy;
+    private long createdOn;
+    private int status;
 
-	@Id
-	@Column(name = "employee_id")
-	public int getEmployeeId() {
-		return employeeId;
-	}
+    /**
+     * Gets the Employee ID
+     *
+     * @return employeeId
+     */
+    @Id
+    @Column(name = "employee_id")
+    public int getEmployeeId() {
+        return employeeId;
+    }
 
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
-	}
 
-	@Column(name = "email_id")
-	public String getEmailId() {
-		return emailId;
-	}
+    /**
+     * Sets the the employee ID
+     *
+     * @param employeeId
+     */
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
+    /**
+     * Gets the EmailId of the employee
+     *
+     * @return emailId
+     */
+    @Column(name = "email_id")
+    public String getEmailId() {
+        return emailId;
+    }
 
-	@Column(name = "employee_name")
-	public String getEmployeeName() {
-		return employeeName;
-	}
+    /**
+     * Sets the Email Id of the employee
+     *
+     * @param emailId
+     */
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
 
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
-	}
+    /**
+     * Gets  the Employee Name
+     *
+     * @return employee_name
+     */
+    @Column(name = "employee_name")
+    public String getEmployeeName() {
+        return employeeName;
+    }
 
-	@Column(name = "date_of_joining")
-	public long getDateOfJoining() {
-		return dateOfJoining;
-	}
+    /**
+     * Sets the Employee Name
+     *
+     * @param employeeName
+     */
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
 
-	public void setDateOfJoining(long dateOfJoining) {
-		this.dateOfJoining = dateOfJoining;
-	}
-	
-	public String getDesignation() {
-		return designation;
-	}
+    /**
+     * Gets the Date of JJoining of the employee
+     *
+     * @return dateOfJoining
+     */
+    @Column(name = "date_of_joining")
+    public long getDateOfJoining() {
+        return dateOfJoining;
+    }
 
-	public void setDesignation(String designation) {
-		this.designation = designation;
-	}
+    /**
+     * Sets the Date of Joining of the Employee
+     *
+     * @param dateOfJoining
+     */
+    public void setDateOfJoining(long dateOfJoining) {
+        this.dateOfJoining = dateOfJoining;
+    }
 
-	@Column(name = "modified_by")
-	public String getModifiedBy() {
-		return modifiedBy;
-	}
+    /**
+     * Gets the Designation of the Employee
+     *
+     * @return designation
+     */
+    public String getDesignation() {
+        return designation;
+    }
 
-	public void setModifiedBy(String modifiedBy) {
-		this.modifiedBy = modifiedBy;
-	}
+    /**
+     * Sets the Designation of the Employee
+     *
+     * @param designation
+     */
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
 
-	@Column(name = "modified_on")
-	public long getModifiedOn() {
-		return modifiedOn;
-	}
+    /**
+     * Gets the Modified persons name
+     *
+     * @return modifiedBy
+     */
+    @Column(name = "modified_by")
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
 
-	public void setModifiedOn(long modifiedOn) {
-		this.modifiedOn = modifiedOn;
-	}
+    /**
+     * Sets the Modified by persons Name
+     *
+     * @param modifiedBy
+     */
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
 
-	@Column(name = "created_by")
-	public String getCreatedBy() {
-		return createdBy;
-	}
+    /**
+     * Gets the Modified on date
+     *
+     * @return modifiedOn
+     */
+    @Column(name = "modified_on")
+    public long getModifiedOn() {
+        return modifiedOn;
+    }
 
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
+    /**
+     * Sets the Modified on date
+     *
+     * @param modifiedOn
+     */
+    public void setModifiedOn(long modifiedOn) {
+        this.modifiedOn = modifiedOn;
+    }
 
-	@Column(name = "created_on")
-	public long getCreatedOn() {
-		return createdOn;
-	}
+    /**
+     * Gtes the created by name
+     *
+     * @return createdBY
+     */
+    @Column(name = "created_by")
+    public String getCreatedBy() {
+        return createdBy;
+    }
 
-	public void setCreatedOn(long createdOn) {
-		this.createdOn = createdOn;
-	}
+    /**
+     * sets the createdBY Name
+     *
+     * @param createdBy
+     */
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
 
-	public int getStatus() {
-		return status;
-	}
+    /**
+     * Gets the Created on Date
+     *
+     * @return createdOn
+     */
+    @Column(name = "created_on")
+    public long getCreatedOn() {
+        return createdOn;
+    }
 
-	public void setStatus(int status) {
-		this.status = status;
-	}
+    /**
+     * Sets the Created on date
+     *
+     * @param createdOn
+     */
+    public void setCreatedOn(long createdOn) {
+        this.createdOn = createdOn;
+    }
 
-	@Override
-	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", emailId=" + emailId + ", employeeName=" + employeeName
-				+ ", dateOfJoining=" + dateOfJoining + ", designation=" + designation + ", modifiedBy=" + modifiedBy
-				+ ", modifiedOn=" + modifiedOn + ", createdBy=" + createdBy + ", createdOn=" + createdOn + ", status="
-				+ status + "]";
-	}
+    /**
+     * Gets the Status of the Record
+     *
+     * @return status
+     */
+    public int getStatus() {
+        return status;
+    }
+
+    /**
+     * Sets the Status of the status
+     *
+     * @param status
+     */
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    /**
+     * The to string of the employee entity
+     *
+     * @return String
+     */
+    @Override
+    public String toString() {
+        return "Employee [employeeId=" + employeeId + ", emailId=" + emailId + ", employeeName=" + employeeName
+                + ", dateOfJoining=" + dateOfJoining + ", designation=" + designation + ", modifiedBy=" + modifiedBy
+                + ", modifiedOn=" + modifiedOn + ", createdBy=" + createdBy + ", createdOn=" + createdOn + ", status="
+                + status + "]";
+    }
 }
