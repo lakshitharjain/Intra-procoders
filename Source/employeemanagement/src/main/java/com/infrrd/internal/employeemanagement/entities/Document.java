@@ -1,14 +1,8 @@
 package com.infrrd.internal.employeemanagement.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "DOCUMENT")
@@ -28,6 +22,7 @@ public class Document implements Serializable {
 
 
     private int documentId;
+    @OneToOne
     private DocumentMaster documentMaster;
     private String filePath;
     private boolean verified;
@@ -37,6 +32,8 @@ public class Document implements Serializable {
     private String createdBy;
     private Timestamp createdOn;
     private int status;
+
+    @ManyToOne
     private Employee employee;
 
     /**
@@ -99,7 +96,6 @@ public class Document implements Serializable {
      *
      * @return employee
      */
-    @ManyToOne
     @JoinColumn(name = "employee_id")
     public Employee getEmployeeId() {
         return employee;
@@ -117,8 +113,6 @@ public class Document implements Serializable {
      *
      * @return document type
      */
-    @ManyToOne
-    @JoinColumn(name = "document_type", table = "DOCUMENT_MASTER")
     public DocumentMaster getDocumentMaster() {
         return documentMaster;
     }

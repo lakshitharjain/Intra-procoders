@@ -1,14 +1,11 @@
 package com.infrrd.internal.employeemanagement.entities;
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * Personal Details Entities
@@ -19,6 +16,17 @@ import javax.persistence.Table;
 @Table(name = "PERSONAL_DETAILS")
 public class PersonalDetails implements Serializable {
 
+    private static final long serialVersionUID = 9000896415486788199L;
+    private String phoneNumber;
+    private String address;
+    private String bloodGroup;
+    private String modifiedBy;
+    private Timestamp modifiedOn;
+    private String createdBy;
+    private Timestamp createdOn;
+    private int status;
+    @Id
+    private Employee employee;
     /**
      * Default constructor
      */
@@ -40,20 +48,6 @@ public class PersonalDetails implements Serializable {
         this.createdOn = createdOn;
         this.status = status;
     }
-
-    private static final long serialVersionUID = 9000896415486788199L;
-
-    private String phoneNumber;
-    private String address;
-    private String bloodGroup;
-    private String modifiedBy;
-    private Timestamp modifiedOn;
-    private String createdBy;
-    private Timestamp createdOn;
-    private int status;
-
-    @Id
-    private Employee employee;
 
     /**
      * Method that returns employee_id

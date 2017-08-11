@@ -1,14 +1,9 @@
 package com.infrrd.internal.employeemanagement.entities;
 
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * DocumentMaster Entity
@@ -18,6 +13,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "DocumentMaster")
 public class DocumentMaster implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = -8531267203985306174L;
+    @Id
+    @GeneratedValue
+    private int documentType;
+    private String documentName;
+    private String modifiedBy;
+    private Timestamp modifiedOn;
+    private String createdBy;
+    private Timestamp createdOn;
+    private int status;
 
     /**
      * default DocumentMaster constructor
@@ -55,27 +64,6 @@ public class DocumentMaster implements Serializable {
                 + modifiedBy + ", modifiedOn=" + modifiedOn + ", createdBy=" + createdBy + ", createdOn=" + createdOn
                 + ", status=" + status + "]";
     }
-
-    /**
-     *
-     */
-    private static final long serialVersionUID = -8531267203985306174L;
-
-    @Id
-    @GeneratedValue
-    private int documentType;
-
-    private String documentName;
-
-    private String modifiedBy;
-
-    private Timestamp modifiedOn;
-
-    private String createdBy;
-
-    private Timestamp createdOn;
-
-    private int status;
 
     /**
      * method to get documentType

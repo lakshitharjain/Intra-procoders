@@ -1,13 +1,8 @@
 package com.infrrd.internal.employeemanagement.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 
 /**
@@ -41,7 +36,7 @@ public class ChecklistMaster implements Serializable {
     }
 
     /**
-     * Sets the Checcklist type
+     * Sets the Checklist type
      *
      * @param checklistType
      */

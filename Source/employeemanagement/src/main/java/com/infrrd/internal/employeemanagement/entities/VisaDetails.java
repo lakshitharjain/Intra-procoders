@@ -1,18 +1,12 @@
 package com.infrrd.internal.employeemanagement.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 /**
  * VisaDetails Entity
+ *
  * @author Lakshita
  */
 @Entity
@@ -20,7 +14,19 @@ import javax.persistence.Table;
 public class VisaDetails implements Serializable {
 
     private static final long serialVersionUID = 2561938392184597076L;
-
+    int visaId;
+    boolean visaStatus;
+    Timestamp expiryDate;
+    String country;
+    String visaType;
+    String modifiedBy;
+    Timestamp modifiedOn;
+    String createdBy;
+    Timestamp createdOn;
+    int status;
+    @ManyToOne
+    @JoinColumn(name = "employee_id", table = "EMPLOYEE")
+    private Employee employee;
     /**
      * Default constructor
      */
@@ -47,17 +53,6 @@ public class VisaDetails implements Serializable {
         this.status = status;
     }
 
-    int visaId;
-    boolean visaStatus;
-    Timestamp expiryDate;
-    String country;
-    String visaType;
-    String modifiedBy;
-    Timestamp modifiedOn;
-    String createdBy;
-    Timestamp createdOn;
-    int status;
-
     @Id
     @GeneratedValue
     @Column(name = "visa_id")
@@ -68,10 +63,6 @@ public class VisaDetails implements Serializable {
     public void setVisa_id(int visaId) {
         this.visaId = visaId;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "employee_id", table = "EMPLOYEE")
-    private Employee employee;
 
     /**
      * Method to return the employee_id

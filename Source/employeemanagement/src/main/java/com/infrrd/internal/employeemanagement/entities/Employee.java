@@ -1,12 +1,9 @@
 package com.infrrd.internal.employeemanagement.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
 
 /**
  * Employee Entity which is related to the EMPLOYEE table
@@ -18,6 +15,19 @@ import javax.persistence.Table;
 @Table(name = "EMPLOYEE")
 public class Employee implements Serializable {
 
+    private static final long serialVersionUID = -991420900057289878L;
+    private int employeeId;
+    private String emailId;
+    private String employeeName;
+    private Timestamp dateOfJoining;
+    private String designation;
+    private String modifiedBy;
+    private Timestamp modifiedOn;
+    private String createdBy;
+    private Timestamp createdOn;
+    private int status;
+    @OneToMany(mappedBy = "employee")
+    private List<Document> Documents;
     /**
      * Constructor for the Employee entity
      */
@@ -54,19 +64,6 @@ public class Employee implements Serializable {
         this.createdOn = createdOn;
         this.status = status;
     }
-
-    private static final long serialVersionUID = -991420900057289878L;
-
-    private int employeeId;
-    private String emailId;
-    private String employeeName;
-    private Timestamp dateOfJoining;
-    private String designation;
-    private String modifiedBy;
-    private Timestamp modifiedOn;
-    private String createdBy;
-    private Timestamp createdOn;
-    private int status;
 
     /**
      * Gets the Employee ID

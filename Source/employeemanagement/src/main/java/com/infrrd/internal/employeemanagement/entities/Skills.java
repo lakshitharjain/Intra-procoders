@@ -1,14 +1,8 @@
 package com.infrrd.internal.employeemanagement.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**
  * Skills Entity TO store the Skills of the Employees
@@ -57,7 +51,7 @@ public class Skills implements Serializable {
         this.createdOn = createdOn;
         this.status = status;
         this.skillsMaster = skillsMaster;
-        this.employee = employee;
+        this.employee=employee;
     }
 
     @Id
@@ -80,8 +74,6 @@ public class Skills implements Serializable {
     }
 
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id", table = "EMPLOYEE")
     /**
      * Method to get employee id
      * @return employee
@@ -100,7 +92,6 @@ public class Skills implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "skill_type", table = "SKILLS_MASTER")
     /**
      * Method to get skill
      * @return skillsMaster

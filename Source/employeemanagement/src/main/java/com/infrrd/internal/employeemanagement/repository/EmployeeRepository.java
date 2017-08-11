@@ -1,12 +1,11 @@
 package com.infrrd.internal.employeemanagement.repository;
 
-import java.util.List;
-
+import com.infrrd.internal.employeemanagement.entities.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.infrrd.internal.employeemanagement.entities.Employee;
+import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-	public List<Employee> findByEmployeeId(int employeeId); 
+    public List<Employee> findByEmployeeId(int employeeId);
 
 }

@@ -1,7 +1,7 @@
 package com.infrrd.internal.employeemanagement.repository;
 
-import com.infrrd.internal.employeemanagement.entities.CheckListMaster;
+import com.infrrd.internal.employeemanagement.entities.ChecklistMaster;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CheckListMasterRepository extends JpaRepository<CheckListMaster,Long> {
+public interface ChecklistMasterRepository extends JpaRepository<ChecklistMaster, Long> {
 }

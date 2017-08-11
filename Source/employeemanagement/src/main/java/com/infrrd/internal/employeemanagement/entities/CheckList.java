@@ -6,27 +6,19 @@ package com.infrrd.internal.employeemanagement.entities;
  * @author Ankit
  */
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-
 @Entity
 @Table(name = "CHECKLIST")
-public class CheckList implements Serializable {
+public class Checklist implements Serializable {
 
 
     private static final long serialVersionUID = 4855033653988831690L;
 
 
-    private int checkListId;
+    private int checklistId;
     private String checkListValue;
     private boolean completed;
     private String modifiedBy;
@@ -40,26 +32,29 @@ public class CheckList implements Serializable {
 
     /**
      * Method to get Checklist ID
+     *
      * @return Checklist ID
      */
     @Id
     @GeneratedValue
     @Column(name = "checklist_id")
     public int getCheckListId() {
-        return checkListId;
+        return checklistId;
     }
 
 
     /**
      * Sets the checkList ID to input specified as parameter
+     *
      * @param checkListId CheckList ID
      */
     public void setCheckListId(int checkListId) {
-        this.checkListId = checkListId;
+        this.checklistId = checkListId;
     }
 
     /**
      * Method to get CheckListMater object
+     *
      * @return CheckListMaster object
      */
     @ManyToOne
@@ -70,6 +65,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to set CheckListMaster reference in CheckList
+     *
      * @param checklistMaster reference object of CheckListMaster
      */
     public void setChecklistMaster(ChecklistMaster checklistMaster) {
@@ -89,6 +85,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to set employee object
+     *
      * @param employee employee for which checklist is meant
      */
     public void setEmployee(Employee employee) {
@@ -98,6 +95,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to get CheckList Value
+     *
      * @return CheckList Value
      */
     @Column(name = "checklist_value")
@@ -108,6 +106,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to set CheckList Value
+     *
      * @param checkListValue Its a String determining checkList Value
      */
     public void setCheckListValue(String checkListValue) {
@@ -117,6 +116,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to check status of CheckList
+     *
      * @return boolean determining checklist status
      */
     @Column(name = "completed")
@@ -127,6 +127,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to set Checklist status
+     *
      * @param completed boolean determining checklist status
      */
     public void setCompleted(boolean completed) {
@@ -136,6 +137,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to get Modifier name
+     *
      * @return Name of the Modifier
      */
     @Column(name = "modified_by")
@@ -146,6 +148,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to set Modifier name
+     *
      * @param modifiedBy Name of the Modifier
      */
     public void setModifiedBy(String modifiedBy) {
@@ -155,6 +158,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to get Last modification Date
+     *
      * @return Last modification Date
      */
     @Column(name = "modified_on")
@@ -165,6 +169,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to set Last modification Date
+     *
      * @param modifiedOn Date determining Modification date
      */
     public void setModifiedOn(Timestamp modifiedOn) {
@@ -174,6 +179,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to get Creator Name
+     *
      * @return Creator Name
      */
     @Column(name = "created_by")
@@ -184,6 +190,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to set Creator Name
+     *
      * @param createdBy Creator Name
      */
     public void setCreatedBy(String createdBy) {
@@ -203,6 +210,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to set Date on which the checkList is created
+     *
      * @param createdOn
      */
     public void setCreatedOn(Timestamp createdOn) {
@@ -211,6 +219,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to get checkList status
+     *
      * @return checklist status
      */
     @Column(name = "status")
@@ -221,6 +230,7 @@ public class CheckList implements Serializable {
 
     /**
      * Method to set checkList status
+     *
      * @param status
      */
     public void setStatus(int status) {
@@ -233,7 +243,7 @@ public class CheckList implements Serializable {
      */
     @Override
     public String toString() {
-        return "CheckList [checkListId=" + checkListId + ", employeeId=" + employee + ", checkListType=" + checklistMaster
+        return "CheckList [checkListId=" + checklistId + ", employeeId=" + employee + ", checkListType=" + checklistMaster
                 + ", checkListValue=" + checkListValue + ", completed=" + completed + ", modifiedBy=" + modifiedBy + ", modifiedOn="
                 + modifiedOn + ", createdBy=" + createdBy + ", createdOn=" + createdOn + ", status=" + status + "]";
     }
