@@ -1,6 +1,7 @@
 package com.infrrd.internal.employeemanagement.entities;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,9 +23,9 @@ public class ChecklistMaster implements Serializable {
     private int checklistType;
     private String checklistDescription;
     private String modifiedBy;
-    private long modifiedOn;
+    private Timestamp modifiedOn;
     private String createdBy;
-    private long createdOn;
+    private Timestamp createdOn;
     private int status;
 
     /**
@@ -93,7 +94,7 @@ public class ChecklistMaster implements Serializable {
      * @return modifiedOn
      */
     @Column(name = "modified_on")
-    public long getModifiedOn() {
+    public Timestamp getModifiedOn() {
         return modifiedOn;
     }
 
@@ -103,7 +104,7 @@ public class ChecklistMaster implements Serializable {
      *
      * @param modifiedOn
      */
-    public void setModifiedOn(long modifiedOn) {
+    public void setModifiedOn(Timestamp modifiedOn) {
         this.modifiedOn = modifiedOn;
     }
 
@@ -132,7 +133,7 @@ public class ChecklistMaster implements Serializable {
      * @return createdOn
      */
     @Column(name = "created_on")
-    public long getCreatedOn() {
+    public Timestamp getCreatedOn() {
         return createdOn;
     }
 
@@ -141,7 +142,7 @@ public class ChecklistMaster implements Serializable {
      *
      * @param createdOn
      */
-    public void setCreatedOn(long createdOn) {
+    public void setCreatedOn(Timestamp createdOn) {
         this.createdOn = createdOn;
     }
 

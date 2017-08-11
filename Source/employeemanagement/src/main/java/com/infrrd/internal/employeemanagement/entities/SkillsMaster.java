@@ -1,6 +1,7 @@
 package com.infrrd.internal.employeemanagement.entities;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,9 +24,9 @@ public class SkillsMaster implements Serializable {
     private int skillType;
     private String skillDescription;
     private String modifiedBy;
-    private long modifiedOn;
+    private Timestamp modifiedOn;
     private String createdBy;
-    private long createdOn;
+    private Timestamp createdOn;
     private int status;
 
     /**
@@ -36,7 +37,6 @@ public class SkillsMaster implements Serializable {
 
     /**
      * SkillsMaster COnstructor
-     *
      * @param skillType
      * @param skillDescription
      * @param modifiedBy
@@ -45,7 +45,7 @@ public class SkillsMaster implements Serializable {
      * @param createdOn
      * @param status
      */
-    public SkillsMaster(int skillType, String skillDescription, String modifiedBy, long modifiedOn, String createdBy, long createdOn, int status) {
+    public SkillsMaster(int skillType, String skillDescription, String modifiedBy, Timestamp modifiedOn, String createdBy, Timestamp createdOn, int status) {
         this.skillType = skillType;
         this.skillDescription = skillDescription;
         this.modifiedBy = modifiedBy;
@@ -120,7 +120,7 @@ public class SkillsMaster implements Serializable {
      * @return modified On date
      */
     @Column(name = "modified_on")
-    public long getModifiedOn() {
+    public Timestamp getModifiedOn() {
         return modifiedOn;
     }
 
@@ -129,7 +129,7 @@ public class SkillsMaster implements Serializable {
      *
      * @param modifiedOn
      */
-    public void setModifiedOn(long modifiedOn) {
+    public void setModifiedOn(Timestamp modifiedOn) {
         this.modifiedOn = modifiedOn;
     }
 
@@ -158,7 +158,7 @@ public class SkillsMaster implements Serializable {
      * @return createdOn
      */
     @Column(name = "created_on")
-    public long getCreatedOn() {
+    public Timestamp getCreatedOn() {
         return createdOn;
     }
 
@@ -167,7 +167,7 @@ public class SkillsMaster implements Serializable {
      *
      * @param createdOn
      */
-    public void setCreatedOn(long createdOn) {
+    public void setCreatedOn(Timestamp createdOn) {
         this.createdOn = createdOn;
     }
 

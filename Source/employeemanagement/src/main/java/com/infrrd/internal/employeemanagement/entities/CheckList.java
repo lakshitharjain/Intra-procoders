@@ -1,29 +1,33 @@
 package com.infrrd.internal.employeemanagement.entities;
 
-import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Table;
-import org.springframework.data.annotation.Id;
+/**
+ * Entity class for implementing checkList at the time of employee transfer
+ *
+ * @author Ankit
+ */
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+//import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-/**
- * Checklist Entity
- */
+
 @Entity
 @Table(name = "CHECKLIST")
-public class Checklist implements Serializable {
+public class CheckList implements Serializable {
 
 
     private static final long serialVersionUID = 4855033653988831690L;
 
 
-    private int checklistId;
-    private String checklistValue;
+    private int checkListId;
+    private String checkListValue;
     private boolean completed;
     private String modifiedBy;
     private Timestamp modifiedOn;
@@ -35,44 +39,40 @@ public class Checklist implements Serializable {
 
 
     /**
-     * Method to get checklist ID
-     *
-     * @return checklist ID
+     * Method to get Checklist ID
+     * @return Checklist ID
      */
     @Id
     @GeneratedValue
     @Column(name = "checklist_id")
-    public int getchecklistId() {
-        return checklistId;
+    public int getCheckListId() {
+        return checkListId;
     }
 
 
     /**
-     * Sets the checklist ID to input specified as parameter
-     *
-     * @param checklistId checklist ID
+     * Sets the checkList ID to input specified as parameter
+     * @param checkListId CheckList ID
      */
-    public void setchecklistId(int checklistId) {
-        this.checklistId = checklistId;
+    public void setCheckListId(int checkListId) {
+        this.checkListId = checkListId;
     }
 
     /**
-     * Method to get checklistMater object
-     *
-     * @return checklistMaster object
+     * Method to get CheckListMater object
+     * @return CheckListMaster object
      */
     @ManyToOne
-    public ChecklistMaster getchecklistMaster() {
+    public ChecklistMaster getChecklistMaster() {
         return checklistMaster;
     }
 
 
     /**
-     * Method to set checklistMaster reference in checklist
-     *
-     * @param checklistMaster reference object of checklistMaster
+     * Method to set CheckListMaster reference in CheckList
+     * @param checklistMaster reference object of CheckListMaster
      */
-    public void setchecklistMaster(ChecklistMaster checklistMaster) {
+    public void setChecklistMaster(ChecklistMaster checklistMaster) {
         this.checklistMaster = checklistMaster;
     }
 
@@ -89,7 +89,6 @@ public class Checklist implements Serializable {
 
     /**
      * Method to set employee object
-     *
      * @param employee employee for which checklist is meant
      */
     public void setEmployee(Employee employee) {
@@ -98,29 +97,26 @@ public class Checklist implements Serializable {
 
 
     /**
-     * Method to get checklist Value
-     *
-     * @return checklist Value
+     * Method to get CheckList Value
+     * @return CheckList Value
      */
     @Column(name = "checklist_value")
-    public String getchecklistValue() {
-        return checklistValue;
+    public String getCheckListValue() {
+        return checkListValue;
     }
 
 
     /**
-     * Method to set checklist Value
-     *
-     * @param checklistValue Its a String determining checklist Value
+     * Method to set CheckList Value
+     * @param checkListValue Its a String determining checkList Value
      */
-    public void setchecklistValue(String checklistValue) {
-        this.checklistValue = checklistValue;
+    public void setCheckListValue(String checkListValue) {
+        this.checkListValue = checkListValue;
     }
 
 
     /**
-     * Method to check status of checklist
-     *
+     * Method to check status of CheckList
      * @return boolean determining checklist status
      */
     @Column(name = "completed")
@@ -130,8 +126,7 @@ public class Checklist implements Serializable {
 
 
     /**
-     * Method to set checklist status
-     *
+     * Method to set Checklist status
      * @param completed boolean determining checklist status
      */
     public void setCompleted(boolean completed) {
@@ -141,7 +136,6 @@ public class Checklist implements Serializable {
 
     /**
      * Method to get Modifier name
-     *
      * @return Name of the Modifier
      */
     @Column(name = "modified_by")
@@ -152,7 +146,6 @@ public class Checklist implements Serializable {
 
     /**
      * Method to set Modifier name
-     *
      * @param modifiedBy Name of the Modifier
      */
     public void setModifiedBy(String modifiedBy) {
@@ -162,7 +155,6 @@ public class Checklist implements Serializable {
 
     /**
      * Method to get Last modification Date
-     *
      * @return Last modification Date
      */
     @Column(name = "modified_on")
@@ -173,7 +165,6 @@ public class Checklist implements Serializable {
 
     /**
      * Method to set Last modification Date
-     *
      * @param modifiedOn Date determining Modification date
      */
     public void setModifiedOn(Timestamp modifiedOn) {
@@ -183,7 +174,6 @@ public class Checklist implements Serializable {
 
     /**
      * Method to get Creator Name
-     *
      * @return Creator Name
      */
     @Column(name = "created_by")
@@ -194,7 +184,6 @@ public class Checklist implements Serializable {
 
     /**
      * Method to set Creator Name
-     *
      * @param createdBy Creator Name
      */
     public void setCreatedBy(String createdBy) {
@@ -204,8 +193,8 @@ public class Checklist implements Serializable {
 
     @Column(name = "created_on")
     /**
-     * Method to get Date on which the checklist is created
-     * @return Date on which the checklist is created
+     * Method to get Date on which the checkList is created
+     * @return Date on which the checkList is created
      */
     public Timestamp getCreatedOn() {
         return createdOn;
@@ -213,17 +202,15 @@ public class Checklist implements Serializable {
 
 
     /**
-     * Method to set Date on which the checklist is created
-     *
-     * @param createdOn the checklist is createdOn
+     * Method to set Date on which the checkList is created
+     * @param createdOn
      */
     public void setCreatedOn(Timestamp createdOn) {
         this.createdOn = createdOn;
     }
 
     /**
-     * Method to get checklist status
-     *
+     * Method to get checkList status
      * @return checklist status
      */
     @Column(name = "status")
@@ -233,8 +220,7 @@ public class Checklist implements Serializable {
 
 
     /**
-     * Method to set checklist status
-     *
+     * Method to set checkList status
      * @param status
      */
     public void setStatus(int status) {
@@ -247,8 +233,8 @@ public class Checklist implements Serializable {
      */
     @Override
     public String toString() {
-        return "checklist [checklistId=" + checklistId + ", employeeId=" + employee + ", checklistType=" + checklistMaster
-                + ", checklistValue=" + checklistValue + ", completed=" + completed + ", modifiedBy=" + modifiedBy + ", modifiedOn="
+        return "CheckList [checkListId=" + checkListId + ", employeeId=" + employee + ", checkListType=" + checklistMaster
+                + ", checkListValue=" + checkListValue + ", completed=" + completed + ", modifiedBy=" + modifiedBy + ", modifiedOn="
                 + modifiedOn + ", createdBy=" + createdBy + ", createdOn=" + createdOn + ", status=" + status + "]";
     }
 

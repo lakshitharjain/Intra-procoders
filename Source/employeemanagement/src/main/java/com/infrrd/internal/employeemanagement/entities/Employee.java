@@ -1,6 +1,7 @@
 package com.infrrd.internal.employeemanagement.entities;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,8 +40,8 @@ public class Employee implements Serializable {
      * @param status
      */
 
-    public Employee(int employeeId, String emailId, String employeeName, long dateOfJoining, String designation,
-                    String modifiedBy, long modifiedOn, String createdBy, long createdOn, int status) {
+    public Employee(int employeeId, String emailId, String employeeName, Timestamp dateOfJoining, String designation,
+                    String modifiedBy, Timestamp modifiedOn, String createdBy, Timestamp createdOn, int status) {
         super();
         this.employeeId = employeeId;
         this.emailId = emailId;
@@ -59,12 +60,12 @@ public class Employee implements Serializable {
     private int employeeId;
     private String emailId;
     private String employeeName;
-    private long dateOfJoining;
+    private Timestamp dateOfJoining;
     private String designation;
     private String modifiedBy;
-    private long modifiedOn;
+    private Timestamp modifiedOn;
     private String createdBy;
-    private long createdOn;
+    private Timestamp createdOn;
     private int status;
 
     /**
@@ -132,7 +133,7 @@ public class Employee implements Serializable {
      * @return dateOfJoining
      */
     @Column(name = "date_of_joining")
-    public long getDateOfJoining() {
+    public Timestamp getDateOfJoining() {
         return dateOfJoining;
     }
 
@@ -141,7 +142,7 @@ public class Employee implements Serializable {
      *
      * @param dateOfJoining
      */
-    public void setDateOfJoining(long dateOfJoining) {
+    public void setDateOfJoining(Timestamp dateOfJoining) {
         this.dateOfJoining = dateOfJoining;
     }
 
@@ -188,7 +189,7 @@ public class Employee implements Serializable {
      * @return modifiedOn
      */
     @Column(name = "modified_on")
-    public long getModifiedOn() {
+    public Timestamp getModifiedOn() {
         return modifiedOn;
     }
 
@@ -197,7 +198,7 @@ public class Employee implements Serializable {
      *
      * @param modifiedOn
      */
-    public void setModifiedOn(long modifiedOn) {
+    public void setModifiedOn(Timestamp modifiedOn) {
         this.modifiedOn = modifiedOn;
     }
 
@@ -226,7 +227,7 @@ public class Employee implements Serializable {
      * @return createdOn
      */
     @Column(name = "created_on")
-    public long getCreatedOn() {
+    public Timestamp getCreatedOn() {
         return createdOn;
     }
 
@@ -235,7 +236,7 @@ public class Employee implements Serializable {
      *
      * @param createdOn
      */
-    public void setCreatedOn(long createdOn) {
+    public void setCreatedOn(Timestamp createdOn) {
         this.createdOn = createdOn;
     }
 

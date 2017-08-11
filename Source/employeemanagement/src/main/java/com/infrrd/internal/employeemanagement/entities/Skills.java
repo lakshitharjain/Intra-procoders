@@ -1,6 +1,7 @@
 package com.infrrd.internal.employeemanagement.entities;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,9 +24,9 @@ public class Skills implements Serializable {
 
     private int skillId;
     private String modifiedBy;
-    private long modifiedOn;
+    private Timestamp modifiedOn;
     private String createdBy;
-    private long createdOn;
+    private Timestamp createdOn;
     private int status;
     private SkillsMaster skillsMaster;
     private Employee employee;
@@ -48,7 +49,7 @@ public class Skills implements Serializable {
      * @param skillsMaster
      * @param employee
      */
-    public Skills(int skillId, String modifiedBy, long modifiedOn, String createdBy, long createdOn, int status, SkillsMaster skillsMaster, Employee employee) {
+    public Skills(int skillId, String modifiedBy, Timestamp modifiedOn, String createdBy, Timestamp createdOn, int status, SkillsMaster skillsMaster, Employee employee) {
         this.skillId = skillId;
         this.modifiedBy = modifiedBy;
         this.modifiedOn = modifiedOn;
@@ -140,7 +141,7 @@ public class Skills implements Serializable {
      * Method to get the time when modified
      * @return modifiedOn
      */
-    public long getModifiedOn() {
+    public Timestamp getModifiedOn() {
         return modifiedOn;
     }
 
@@ -149,7 +150,7 @@ public class Skills implements Serializable {
      *
      * @param modifiedOn
      */
-    public void setModifiedOn(long modifiedOn) {
+    public void setModifiedOn(Timestamp modifiedOn) {
         this.modifiedOn = modifiedOn;
     }
 
@@ -176,7 +177,7 @@ public class Skills implements Serializable {
      * Method to get the time when created
      * @return createdOn
      */
-    public long getCreatedOn() {
+    public Timestamp getCreatedOn() {
         return createdOn;
     }
 
@@ -185,7 +186,7 @@ public class Skills implements Serializable {
      *
      * @param createdOn
      */
-    public void setCreatedOn(long createdOn) {
+    public void setCreatedOn(Timestamp createdOn) {
         this.createdOn = createdOn;
     }
 
