@@ -1,6 +1,8 @@
 package com.infrrd.internal.employeemanagement;
 
-import com.infrrd.internal.employeemanagement.entities.*;
+import com.infrrd.internal.employeemanagement.entities.Employee;
+import com.infrrd.internal.employeemanagement.entities.PersonalDetails;
+import com.infrrd.internal.employeemanagement.entities.VisaDetails;
 import com.infrrd.internal.employeemanagement.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -11,40 +13,40 @@ import java.sql.Timestamp;
 @SpringBootApplication
 public class EmployeemanagementApplication {
 
-    @Autowired
-    private EmployeeRepository employeeRepository;
+	@Autowired
+	private PersonalDetailsRepository personalDetailsRepository;
+	@Autowired
+	private EmployeeRepository employeeRepository;
+	// @Autowired
+	// private VisaDetailsRepository VisaDetailsRepository;
 
-    @Autowired
-    private DocumentMasterRepository documentMasterRepository;
+	public static void main(String[] args) {
 
-    @Autowired
-    private DocumentRepository documentRepository;
+		SpringApplication.run(EmployeemanagementApplication.class, args);
+	}
 
-    @Autowired
-    private SkillsMasterRepository skillsMasterRepository;
+	@Autowired
+	public void setEmployeeRepository() {
+		Employee employee = new Employee(5, "bleh5@bleh.com", "bleh", new Timestamp(System.currentTimeMillis()), "ceo",
+				"HR", new Timestamp(System.currentTimeMillis()), "asdfaasfd", new Timestamp(System.currentTimeMillis()),
+				1);
+		employeeRepository.save(employee);
 
-    @Autowired
-    private SkillsRepository skillsRepository;
+	}
 
-    public static void main(String[] args) {
+//	@Autowired
+//	public void setVisaDetailsRepository() {
+//		VisaDetails visaDetails = new VisaDetails(3, true, new Timestamp(System.currentTimeMillis()), "INDIA", "H1",
+//				"HR", new Timestamp(System.currentTimeMillis()), "HR", new Timestamp(System.currentTimeMillis()), 1);
+//		VisaDetailsRepository.save(visaDetails);
+//
+//	}
 
-        SpringApplication.run(EmployeemanagementApplication.class, args);
-    }
+	@Autowired
+	public void setPersonalDetailsRepository() {
+		PersonalDetails personalDetails = new PersonalDetails("123", "JPNagar", "A+", "HR",
+				new Timestamp(System.currentTimeMillis()), "HR", new Timestamp(System.currentTimeMillis()), 1);
+		personalDetailsRepository.save(personalDetails);
 
-    @Autowired
-    public void setEmployeeRepository() {
-        Employee employee = new Employee(1, "bleh1@bleh.com", "bleh", new Timestamp(System.currentTimeMillis()), "ceo", "HR", new Timestamp(System.currentTimeMillis()), "asdfaasfd", new Timestamp(System.currentTimeMillis()), 1);
-        employeeRepository.save(employee);
-        DocumentMaster documentMaster = new DocumentMaster(1, "Address", "yo", new Timestamp(System.currentTimeMillis()), "Ravi", new Timestamp(System.currentTimeMillis()), 1);
-      //  documentMasterRepository.save(documentMaster);
-        Document document = new Document(1, documentMaster, "asdfasdfasdf", true, true, "Ravi", new Timestamp(System.currentTimeMillis()), "RAvi", new Timestamp(System.currentTimeMillis()), 1, employee);
-       // documentRepository.save(document);
-
-        SkillsMaster skillsMaster = new SkillsMaster(2, "awesomeSkill", "Ravi", new Timestamp(System.currentTimeMillis()), "Ravi", new Timestamp(System.currentTimeMillis()), 1);
-        //skillsMasterRepository.save(skillsMaster);
-
-        Skills skills = new Skills(2, "Ravi", new Timestamp(System.currentTimeMillis()), "Ravi", new Timestamp(System.currentTimeMillis()), 1, skillsMaster, employee);
-        //skillsRepository.save(skills);
-
-    }
+	}
 }

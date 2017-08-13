@@ -17,8 +17,8 @@ status			int
 
 CREATE TABLE DOCUMENT(
 document_id 	int		primary key auto_increment,
-employee_id 	int		references EMPLOYEE(employee_id),
-document_type 	int		referenceS DOCUMENT_MASTER(document_type),
+employee_id 	int		,
+document_type 	int		,
 file_path 		varchar(500),
 verified 		boolean,
 uploaded		boolean,
@@ -31,8 +31,8 @@ status			int
 
 CREATE TABLE CHECKLIST(
 checklist_id	 int 	primary key auto_increment,
-employee_id 	 int 	references EMPLOYEE(employee_id),
-checklist_type   int 	references CHECKLIST_MASTER(checklist_type),
+employee_id 	 int 	,
+checklist_type   int 	,
 checlist_value	 varchar(100),
 completed		 boolean default false,
 modified_by 	 varchar(50),
@@ -44,7 +44,7 @@ status 			 int
 
 CREATE TABLE VISA_DETAILS (
 visa_id			int 	primary key auto_increment,
-employee_id 	int 	references EMPLOYEE(employee_id),
+employee_id 	int 	,
 visa_status		boolean,
 expiry_date		timestamp,
 country			varchar(50),
@@ -56,9 +56,10 @@ created_on  	timestamp,
 status			int
 
 );
+DROP TABLE PERSONAL_DETAILS;
 
 CREATE TABLE PERSONAL_DETAILS(
-employee_id		int		primary key references EMPLOYEE(employee_id),
+employee_id		int	primary key default 0,
 phone_number	varchar(10),
 address			varchar(100),
 blood_group		varchar(10),
@@ -110,3 +111,9 @@ created_by  	varchar(50),
 created_on  	timestamp,
 status			int
 )
+
+SELECT * FROM VISA_DETAILS;
+
+DROP TABLE PERSONAL_DETAILS;
+
+SHOW tables
